@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Turtle Neck Tees — Built to Last. Worn with Intent.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=GFS+Didot&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Noto+Serif+Devanagari:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Obsidian + Gold — brand system */
+    --bg:         #0e0d0b;
+    --bg-soft:    #161412;
+    --bg-deep:    #1f1c18;
+    --ink:        #f3ece0;
+    --ink-soft:   #c2bba9;
+    --mute:       #7a7163;
+    --rule:       #2a2620;
+    --accent:     #c9a46b;
+    --accent-deep:#a07e44;
+    --paper:      #f5eedf;
+    --paper-soft: #ebe3d1;
+
+    --font-display: "GFS Didot", "Cormorant Garamond", serif;
+    --font-serif:   "Cormorant Garamond", "GFS Didot", serif;
+    --font-body:    "Work Sans", "Helvetica Neue", Arial, sans-serif;
+    --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+    --font-deva:    "Noto Serif Devanagari", serif;
+  }
+  [data-palette="bone"] {
+    --bg:         #f2ede3;
+    --bg-soft:    #e8e0cf;
+    --bg-deep:    #ddd4bf;
+    --ink:        #17140f;
+    --ink-soft:   #3a342c;
+    --mute:       #8a8274;
+    --rule:       #cdc4b3;
+    --accent:     #9a7634;
+    --accent-deep:#6b4e1d;
+    --paper:      #fbf8f1;
+    --paper-soft: #f1ebda;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0.005em;
+    position: relative;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+  /* ============ TURTLE-SHELL BACKDROP ============ */
+  .shell-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("assets/tnt-shell-pattern.png");
+    background-size: 640px auto;
+    background-repeat: repeat;
+    opacity: 0.09;
+    filter: invert(1) sepia(1) saturate(4) hue-rotate(5deg) brightness(0.85);
+    mix-blend-mode: screen;
+  }
+  .shell-bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, transparent 0%, color-mix(in srgb, var(--bg) 50%, transparent) 55%, var(--bg) 95%);
+  }
+  [data-palette="bone"] .shell-bg { opacity: 0.18; filter: none; mix-blend-mode: multiply; }
+
+  /* Photo-float: soft radial mask to blend product image into shell background */
+  .photo-float {
+    -webkit-mask-image: radial-gradient(ellipse 75% 85% at 50% 48%, #000 55%, rgba(0,0,0,0.6) 78%, transparent 100%);
+            mask-image: radial-gradient(ellipse 75% 85% at 50% 48%, #000 55%, rgba(0,0,0,0.6) 78%, transparent 100%);
+    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.55));
+  }
+
+  nav, .marquee, header, section, div.kind, div.deva-banner, div.the-one, div.manifesto, div.signature, div.rhythm, div.letter, footer { position: relative; z-index: 1; }
+
+  body.grain::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .display { font-family: var(--font-display); font-weight: 400; line-height: 0.95; letter-spacing: -0.015em; }
+  .serif { font-family: var(--font-serif); }
+  .mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
+  .gold { color: var(--accent); }
+  .deva { font-family: var(--font-deva); letter-spacing: 0; }
+  .hide-deva .deva { display: none; }
+
+  /* ============ TNT MONOGRAM ============ */
+  .monogram { display: inline-flex; align-items: center; gap: 10px; }
+  .monogram svg { display: block; }
+  .monogram .wm-text {
+    font-family: var(--font-display);
+    font-size: 22px;
+    letter-spacing: 0.28em;
+    color: var(--ink);
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-inner {
+    max-width: 1480px; margin: 0 auto;
+    padding: 16px 48px;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;
+  }
+  .nav-left, .nav-right { display: flex; gap: 28px; align-items: center; }
+  .nav-right { justify-content: flex-end; }
+  .nav a { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
+  .nav a:hover { color: var(--accent); }
+  .cart-count { font-family: var(--font-mono); font-size: 10px; background: var(--accent); color: var(--bg); width: 18px; height: 18px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-left: 6px; }
+
+  /* ============ MARQUEE ============ */
+  .marquee {
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg-soft);
+    overflow: hidden; white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-flex; gap: 48px;
+    padding: 11px 0;
+    animation: marquee 42s linear infinite;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 48px; }
+  .marquee-track .sep { color: var(--accent); }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  /* ============ HERO ============ */
+  .hero {
+    max-width: 1480px; margin: 0 auto;
+    padding: 72px 48px 80px;
+  }
+  .hero-meta { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--rule); padding-top: 18px; margin-bottom: 56px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.95fr;
+    gap: 56px;
+    align-items: stretch;
+  }
+  .hero-title {
+    font-size: clamp(64px, 9.5vw, 172px);
+    line-height: 0.88;
+    letter-spacing: -0.025em;
+  }
+  .hero-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .hero-title .thin { font-weight: 300; opacity: 0.85; }
+  .hero-sub {
+    margin-top: 36px;
+    font-family: var(--font-serif);
+    font-size: 20px; font-style: italic;
+    line-height: 1.45;
+    max-width: 44ch;
+    color: var(--ink-soft);
+  }
+  .hero-actions { margin-top: 40px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 24px;
+    border: 1px solid var(--accent);
+    background: var(--accent); color: var(--bg);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .btn:hover { background: transparent; color: var(--accent); }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink-soft); }
+  .btn.ghost:hover { color: var(--accent); border-color: var(--accent); }
+  .btn .arr { transition: transform .25s ease; }
+  .btn:hover .arr { transform: translateX(4px); }
+
+  .hero-img {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--bg-soft);
+  }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-img .corner {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 8px 12px;
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    color: var(--ink);
+    backdrop-filter: blur(8px);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    z-index: 5;
+  }
+  .hero-img .corner.tl { top: 18px; left: 18px; }
+  .hero-img .corner.br {
+    bottom: 18px; right: 18px;
+    text-align: right; line-height: 1.5;
+  }
+  .hero-img .corner b { color: var(--accent); font-weight: 500; }
+
+  /* Hero meta rail */
+  .hero-rail {
+    margin-top: 56px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-rail .cell {
+    padding: 22px 24px;
+    border-right: 1px solid var(--rule);
+  }
+  .hero-rail .cell:last-child { border-right: 0; }
+  .hero-rail .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute); }
+  .hero-rail .v { font-family: var(--font-display); font-size: 28px; margin-top: 8px; letter-spacing: -0.005em; line-height: 1; }
+  .hero-rail .v em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .hero-rail .v small { font-family: var(--font-body); font-size: 11px; color: var(--mute); letter-spacing: 0.06em; text-transform: uppercase; margin-left: 4px; }
+
+  /* ============ SECTION FRAME ============ */
+  section { max-width: 1480px; margin: 0 auto; padding: 120px 48px; }
+  .sec-head { display: grid; grid-template-columns: 200px 1fr 280px; gap: 48px; align-items: baseline; margin-bottom: 64px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .sec-title { font-size: clamp(44px, 6vw, 88px); line-height: 0.98; letter-spacing: -0.018em; }
+  .sec-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .sec-caption { color: var(--ink-soft); font-size: 14px; line-height: 1.6; max-width: 38ch; font-family: var(--font-serif); font-size: 16px; font-style: italic; }
+
+  /* ============ CERTAIN KIND OF PERSON ============ */
+  .kind {
+    background: var(--bg-soft);
+    max-width: none;
+    padding: 140px 48px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .kind-inner { max-width: 1480px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
+  .kind-tag { margin-bottom: 28px; }
+  .kind h2 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6vw, 96px);
+    line-height: 0.98;
+    margin: 0 0 36px;
+    letter-spacing: -0.02em;
+  }
+  .kind h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .kind p {
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 1.6vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+  }
+  .kind p.final {
+    margin-top: 32px;
+    font-style: italic;
+    color: var(--accent);
+    font-size: clamp(22px, 1.8vw, 26px);
+  }
+
+  /* ============ STUDIO WALL — shared backdrop for portrait frames ============ */
+  .studio-wall {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      radial-gradient(ellipse 90% 70% at 35% 25%,
+        color-mix(in srgb, var(--accent) 14%, var(--bg-deep)) 0%,
+        color-mix(in srgb, var(--accent) 4%, var(--bg-deep)) 35%,
+        var(--bg-deep) 70%),
+      linear-gradient(160deg,
+        color-mix(in srgb, var(--accent) 6%, var(--bg-deep)) 0%,
+        var(--bg-deep) 55%,
+        color-mix(in srgb, #000 25%, var(--bg-deep)) 100%);
+    background-blend-mode: screen, normal;
+  }
+  .studio-wall::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom,
+        transparent 0%,
+        transparent 70%,
+        color-mix(in srgb, #000 18%, transparent) 82%,
+        color-mix(in srgb, #000 35%, transparent) 100%),
+      radial-gradient(ellipse 120% 100% at 50% 50%,
+        transparent 55%,
+        color-mix(in srgb, #000 35%, transparent) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .studio-wall::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08   0 0 0 0 0.06   0 0 0 0 0.04   0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.28;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 2;
+  }
+  [data-palette="bone"] .studio-wall {
+    background:
+      radial-gradient(ellipse 90% 70% at 35% 25%,
+        color-mix(in srgb, var(--accent) 8%, var(--paper-soft)) 0%,
+        color-mix(in srgb, var(--accent) 2%, var(--paper-soft)) 35%,
+        var(--paper-soft) 70%),
+      linear-gradient(160deg,
+        color-mix(in srgb, var(--accent) 4%, var(--paper-soft)) 0%,
+        var(--paper-soft) 55%,
+        color-mix(in srgb, #8a7a5a 18%, var(--paper-soft)) 100%);
+  }
+  [data-palette="bone"] .studio-wall::before {
+    background:
+      linear-gradient(to bottom,
+        transparent 0%,
+        transparent 72%,
+        color-mix(in srgb, #2a1e10 10%, transparent) 85%,
+        color-mix(in srgb, #2a1e10 22%, transparent) 100%),
+      radial-gradient(ellipse 120% 100% at 50% 50%,
+        transparent 60%,
+        color-mix(in srgb, #2a1e10 22%, transparent) 100%);
+  }
+  .studio-wall > img,
+  .studio-wall > picture {
+    position: relative;
+    z-index: 3;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  .kind-portrait {
+    aspect-ratio: 3/4;
+  }
+  .kind-portrait img { width: 100%; height: 100%; object-fit: cover; }
+  .kind-portrait .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, color-mix(in srgb, var(--bg) 55%, transparent), transparent 55%);
+    pointer-events: none;
+    z-index: 4;
+  }
+  .kind-portrait .nm {
+    position: absolute;
+    bottom: 18px; left: 18px;
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent);
+    z-index: 5;
+  }
+
+  /* ============ DEVANAGARI STATEMENT ============ */
+  .deva-banner {
+    background: var(--bg);
+    padding: 100px 48px;
+    text-align: center;
+    position: relative;
+  }
+  .deva-banner .inner { max-width: 1100px; margin: 0 auto; }
+  .deva-banner .big-deva {
+    font-family: var(--font-deva);
+    font-size: clamp(52px, 7.5vw, 108px);
+    line-height: 1.1;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+  .deva-banner .trans {
+    margin-top: 28px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(22px, 2vw, 30px);
+    color: var(--ink-soft);
+  }
+
+  /* ============ PRODUCT — THE ONE GARMENT ============ */
+  .the-one {
+    padding: 140px 48px;
+    max-width: none;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .the-one-inner { max-width: 1480px; margin: 0 auto; }
+  .the-one-head { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 80px; }
+  .the-one-head h2 { font-family: var(--font-display); font-size: clamp(64px, 9vw, 160px); line-height: 0.9; letter-spacing: -0.025em; margin: 0; }
+  .the-one-head h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .the-one-head p { font-family: var(--font-serif); font-size: 20px; font-style: italic; line-height: 1.5; color: var(--ink-soft); max-width: 44ch; margin: 0; }
+
+  .editions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .edition { cursor: pointer; }
+  .edition-img {
+    aspect-ratio: 3/4;
+    background: var(--bg-deep);
+    overflow: hidden;
+    position: relative;
+    transition: transform .4s ease;
+  }
+  .edition:hover .edition-img { transform: translateY(-4px); }
+  .edition-img img { width: 100%; height: 100%; object-fit: cover; }
+  .edition-img .plate {
+    position: absolute; top: 18px; left: 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 7px 11px;
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    backdrop-filter: blur(6px);
+    z-index: 5;
+  }
+  .edition-img .status {
+    position: absolute; top: 18px; right: 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 7px 11px;
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    border: 1px solid color-mix(in srgb, var(--ink) 20%, transparent);
+    backdrop-filter: blur(6px);
+    z-index: 5;
+  }
+  .edition-img .status.gone { color: var(--mute); }
+  .edition-img .status.live { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+  .edition-img .status.coming { color: var(--ink); }
+
+  .edition-meta { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline; }
+  .edition-name { font-family: var(--font-display); font-size: 34px; letter-spacing: -0.008em; line-height: 1.05; }
+  .edition-name em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .edition-price { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; }
+  .edition-sub { grid-column: 1 / -1; color: var(--mute); font-size: 13px; font-family: var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; margin-top: -4px; }
+
+  /* ============ ANATOMY — GARMENT DIAGRAM ============ */
+  .anatomy {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .anatomy h2 { font-family: var(--font-display); font-size: clamp(48px, 6vw, 88px); line-height: 0.98; margin: 0 0 28px; letter-spacing: -0.02em; }
+  .anatomy h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .anatomy p { font-family: var(--font-serif); font-size: 19px; line-height: 1.5; color: var(--ink-soft); margin: 0 0 18px; }
+
+  .three-rules {
+    margin-top: 40px; display: grid; gap: 0; border-top: 1px solid var(--rule);
+  }
+  .three-rules .rule-row { padding: 24px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 36px 1fr; gap: 20px; align-items: baseline; }
+  .three-rules .n { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); }
+  .three-rules .stmt { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -0.008em; }
+  .three-rules .stmt em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+  .diagram-wrap {
+    aspect-ratio: 4/5;
+    background: var(--bg-soft);
+    border: 1px solid var(--rule);
+    position: relative;
+  }
+  .dia-label {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .dia-label b { color: var(--accent); font-weight: 500; }
+  .dia-label .ln { width: 60px; height: 1px; background: color-mix(in srgb, var(--accent) 50%, transparent); }
+  .dia-l1 { top: 14%; left: 62%; }
+  .dia-l2 { top: 36%; left: 70%; }
+  .dia-l3 { top: 62%; left: 66%; }
+  .dia-r1 { top: 24%; right: 62%; flex-direction: row-reverse; text-align: right; }
+  .dia-r2 { top: 52%; right: 70%; flex-direction: row-reverse; text-align: right; }
+
+  /* ============ FABRIC SPECS ============ */
+  .specs-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--rule); gap: 1px;
+    border: 1px solid var(--rule);
+    margin-top: 48px;
+  }
+  .specs-strip .cell { background: var(--bg); padding: 28px 24px; }
+  .specs-strip .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute); }
+  .specs-strip .v { font-family: var(--font-display); font-size: 42px; font-weight: 400; margin-top: 10px; letter-spacing: -0.01em; line-height: 1; }
+  .specs-strip .v em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .specs-strip .v small { font-family: var(--font-body); font-size: 12px; color: var(--mute); letter-spacing: 0.04em; text-transform: uppercase; margin-left: 6px; }
+
+  /* ============ MANIFESTO ============ */
+  .manifesto {
+    background: var(--bg);
+    padding: 160px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .manifesto::before, .manifesto::after {
+    content: ""; position: absolute; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 1px; background: var(--accent);
+  }
+  .manifesto::before { top: 48px; }
+  .manifesto::after { bottom: 48px; }
+  .manifesto .crest {
+    margin: 0 auto 36px;
+    width: 70px; height: 70px;
+    display: block;
+  }
+  .manifesto .deva-line {
+    font-family: var(--font-deva);
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--accent);
+    line-height: 1.15;
+    margin-bottom: 32px;
+  }
+  .manifesto h2 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6.5vw, 108px);
+    line-height: 0.98;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  .manifesto h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .manifesto .attr { margin-top: 48px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--mute); }
+
+  /* ============ PACKAGING ============ */
+  .signature {
+    background: var(--paper);
+    color: #17140f;
+    padding: 140px 48px;
+    max-width: none;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .signature * { --ink-soft: #3a342c; --mute: #8a8274; --rule: #d4cbb8; --accent: #9a7634; }
+  .signature-inner { max-width: 1480px; margin: 0 auto; }
+  .signature-head { display: grid; grid-template-columns: 200px 1fr 280px; gap: 48px; align-items: baseline; margin-bottom: 72px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .signature h2 { font-family: var(--font-display); color: #17140f; font-size: clamp(44px, 6vw, 88px); line-height: 0.98; letter-spacing: -0.02em; margin: 0; }
+  .signature h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .signature .sec-caption { color: #3a342c; font-family: var(--font-serif); font-style: italic; font-size: 16px; }
+  .signature .mono { color: #8a8274; }
+
+  .package-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+  .pk {
+    background: var(--paper-soft);
+    aspect-ratio: 1/1.15;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #d4cbb8;
+  }
+  .pk .nm { position: absolute; top: 16px; left: 16px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #8a8274; }
+  .pk .cap { position: absolute; bottom: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #3a342c; }
+
+  .pk-hangtag {
+    background: #111110;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+  }
+  .pk-hangtag .nm, .pk-hangtag .cap { color: #c9a46b; }
+  .pk-hangtag .cap span:last-child { color: #c9a46b; }
+  .pk-box {
+    background: linear-gradient(135deg, #0e0d0b 0%, #1a1815 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pk-box .nm, .pk-box .cap { color: #c9a46b; }
+  .pk-label {
+    background: #f1ebda;
+  }
+
+  /* ============ GUARANTEE ============ */
+  .covenant {
+    padding: 140px 48px;
+  }
+  .covenant-inner { max-width: 1480px; margin: 0 auto; }
+  .covenant-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .cov { padding: 56px 40px; border-right: 1px solid var(--rule); }
+  .cov:last-child { border-right: 0; }
+  .cov .n { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); }
+  .cov .big { font-family: var(--font-display); font-size: 120px; line-height: 0.9; margin: 20px 0 16px; font-weight: 400; letter-spacing: -0.03em; }
+  .cov .big em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .cov h3 { font-family: var(--font-display); font-size: 28px; margin: 0 0 14px; letter-spacing: -0.005em; font-weight: 400; }
+  .cov p { font-family: var(--font-serif); font-size: 17px; line-height: 1.5; color: var(--ink-soft); margin: 0; max-width: 32ch; }
+
+  /* ============ DROPS LEDGER ============ */
+  .rhythm {
+    background: var(--bg-soft);
+    padding: 140px 48px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    max-width: none;
+  }
+  .rhythm-inner { max-width: 1480px; margin: 0 auto; }
+  .rhythm-head { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+  .rhythm-head h2 { font-family: var(--font-display); font-size: clamp(48px, 6vw, 96px); line-height: 0.95; margin: 0; letter-spacing: -0.02em; }
+  .rhythm-head h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .rhythm-head p { font-family: var(--font-serif); font-style: italic; font-size: 20px; line-height: 1.5; color: var(--ink-soft); max-width: 44ch; margin: 0; }
+
+  .ledger { border: 1px solid var(--rule); background: var(--bg); }
+  .ledger .row {
+    display: grid; grid-template-columns: 90px 1.4fr 180px 160px 140px;
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--rule);
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 0.06em;
+  }
+  .ledger .row:last-child { border-bottom: 0; }
+  .ledger .row.head { background: var(--bg-deep); color: var(--mute); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .ledger .name { font-family: var(--font-display); font-size: 22px; letter-spacing: -0.003em; text-transform: none; color: var(--ink); }
+  .ledger .name em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .ledger .status { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .status.gone { color: var(--mute); }
+  .status.live { color: var(--accent); }
+  .status.coming { color: var(--ink); }
+  .ledger .swatch-cell { display: inline-flex; gap: 6px; align-items: center; }
+  .ledger .sw { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--rule); display: inline-block; }
+
+  /* ============ NEWSLETTER ============ */
+  .letter {
+    padding: 160px 48px; text-align: center;
+  }
+  .letter .seal { display: inline-flex; align-items: center; gap: 14px; margin-bottom: 36px; }
+  .letter .seal .rule-line { width: 48px; height: 1px; background: var(--accent); }
+  .letter .seal .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  .letter .deva-mark { font-family: var(--font-deva); font-size: 14px; letter-spacing: 0.04em; color: var(--accent); }
+  .letter h3 { font-family: var(--font-display); font-size: clamp(44px, 5.5vw, 80px); line-height: 0.98; font-weight: 400; letter-spacing: -0.02em; margin: 0 0 24px; }
+  .letter h3 em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .letter p { max-width: 48ch; margin: 0 auto 40px; font-family: var(--font-serif); font-size: 18px; font-style: italic; color: var(--ink-soft); }
+  .nl-form { display: inline-flex; border-bottom: 1px solid var(--accent); min-width: min(560px, 88vw); }
+  .nl-form input { flex: 1; background: transparent; border: 0; outline: none; font: inherit; font-family: var(--font-body); padding: 16px 8px; color: var(--ink); }
+  .nl-form input::placeholder { color: var(--mute); }
+  .nl-form button { padding: 16px 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); }
+
+  /* ============ SIGN-OFF ============ */
+  .signoff {
+    background: var(--bg);
+    padding: 180px 48px 140px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+  .signoff .mark { display: flex; justify-content: center; margin-bottom: 40px; }
+  .signoff h2 {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 9vw, 160px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+  }
+  .signoff h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .signoff .sub {
+    font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 40px;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: #050504; color: #ece7dc;
+    padding: 96px 48px 36px;
+    border-top: 1px solid #1a1817;
+  }
+  .foot-grid { max-width: 1480px; margin: 0 auto; display: grid; grid-template-columns: 2.4fr 1fr 1fr 1fr; gap: 56px; }
+  .foot-brand { display: flex; flex-direction: column; gap: 24px; }
+  .foot-word { font-family: var(--font-display); font-size: clamp(56px, 8vw, 128px); line-height: 0.9; letter-spacing: -0.025em; }
+  .foot-word em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .foot-brand p { max-width: 36ch; opacity: 0.7; font-size: 14px; margin: 0; font-family: var(--font-serif); font-style: italic; }
+  footer h5 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: #7a7163; margin: 0 0 18px; font-weight: 400; }
+  footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  footer a { opacity: 0.8; font-size: 14px; }
+  footer a:hover { color: var(--accent); opacity: 1; }
+  .foot-bottom { max-width: 1480px; margin: 80px auto 0; padding-top: 24px; border-top: 1px solid #1a1817; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #7a7163; }
+
+  /* ============ PALETTE TOGGLE ============ */
+  .palette-toggle {
+    position: fixed; right: 20px; bottom: 20px; z-index: 100;
+    display: flex; gap: 8px; align-items: center;
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    border: 1px solid var(--rule);
+    backdrop-filter: blur(12px);
+    padding: 10px 14px;
+    border-radius: 2px;
+  }
+  .palette-toggle .pt-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute); margin-right: 4px; }
+  .pt-swatch {
+    width: 22px; height: 22px; border-radius: 50%; cursor: pointer;
+    border: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .pt-swatch:hover, .pt-swatch[aria-pressed="true"] { border-color: var(--accent); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 960px) {
+    .nav-inner { padding: 14px 18px; grid-template-columns: auto 1fr auto; }
+    .nav-left, .nav-right { display: none; }
+    .hero, section { padding: 56px 20px; }
+    .hero-grid, .kind-inner, .the-one-head, .anatomy, .rhythm-head { grid-template-columns: 1fr; gap: 40px; }
+    .editions, .package-grid, .covenant-grid, .specs-strip, .hero-rail, .foot-grid { grid-template-columns: 1fr; }
+    .cov, .hero-rail .cell, .specs-strip .cell { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .sec-head, .signature-head { grid-template-columns: 1fr; gap: 20px; }
+    .ledger .row { grid-template-columns: 1fr; gap: 6px; padding: 16px; }
+    .ledger .row.head { display: none; }
+    .manifesto, .deva-banner, .letter, .signoff, .signature, .the-one, .rhythm, .kind { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body class="grain" data-palette="obsidian">
+
+<div class="shell-bg" aria-hidden="true"></div>
+
+<!-- Reusable TNT monogram: gold hexagonal turtle-shell -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="tnt-mark" viewBox="0 0 64 68">
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+        <polygon points="32,22 42,28 42,40 32,46 22,40 22,28"/>
+        <polygon points="32,6 42,12 42,22 32,22 22,22 22,12"/>
+        <polygon points="32,46 42,40 52,46 52,56 42,58 32,56"/>
+        <polygon points="32,46 22,40 12,46 12,56 22,58 32,56"/>
+        <polygon points="42,22 52,24 56,32 52,40 42,40"/>
+        <polygon points="22,22 12,24 8,32 12,40 22,40"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="#shop">Shop</a>
+      <a href="#anatomy">Garment</a>
+      <a href="about.html">Story</a>
+      <a href="#covenant">Covenant</a>
+    </div>
+    <a href="#top" class="monogram">
+      <svg width="28" height="30" style="color: var(--accent);"><use href="#tnt-mark"/></svg>
+      <span class="wm-text">TNT</span>
+    </a>
+    <div class="nav-right">
+      <a href="#">EN / नेपाली</a>
+      <a href="#">Account</a>
+      <a href="#">Bag <span class="cart-count">1</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>
+      <span>One garment · Made in Kathmandu</span><span class="sep">✦</span>
+      <span>340 GSM · Indian long-staple cotton</span><span class="sep">✦</span>
+      <span>Made once. Never restocked.</span><span class="sep">✦</span>
+      <span>Complimentary repairs for life</span><span class="sep">✦</span>
+      <span>One garment · Made in Kathmandu</span><span class="sep">✦</span>
+      <span>340 GSM · Indian long-staple cotton</span><span class="sep">✦</span>
+      <span>Made once. Never restocked.</span><span class="sep">✦</span>
+      <span>Complimentary repairs for life</span><span class="sep">✦</span>
+    </span>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-meta">
+    <span class="mono"><span class="deva">टि · एन · टि &nbsp; · &nbsp; </span>Est. 2026 · Kathmandu, Nepal</span>
+    <span class="mono">Drop № 02 / The Mock-Neck · Terracotta</span>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <h1 class="hero-title display">
+        Built<br/>
+        <span class="thin">to</span> <em>last</em>.<br/>
+        Worn<br/>
+        <span class="thin">with</span> <em>intent</em>.
+      </h1>
+      <p class="hero-sub">
+        A heavyweight mock-neck tee with a structured silhouette and a fit that doesn't apologize for itself. Crafted through a deliberate combination of Nepali hands and premium Indian cotton.
+      </p>
+      <div class="hero-actions">
+        <a href="#shop" class="btn">Enter the Atelier <span class="arr">→</span></a>
+        <a href="#anatomy" class="btn ghost">The Garment</a>
+      </div>
+    </div>
+    <div class="hero-img studio-wall">
+      <img src="assets/tnt-mocknneck-terracotta.png" alt="Woman wearing TNT terracotta mock-neck tee" />
+      <span class="corner tl"><b>TNT–01</b> &nbsp; · &nbsp; The Mock-Neck</span>
+      <span class="corner br">340 <b>GSM</b><br/>Terracotta · <b>Live</b></span>
+    </div>
+  </div>
+
+  <div class="hero-rail">
+    <div class="cell"><div class="k">Weight</div><div class="v">340<small>gsm</small></div></div>
+    <div class="cell"><div class="k">Edition Size</div><div class="v"><em>248</em><small>pcs</small></div></div>
+    <div class="cell"><div class="k">Maker</div><div class="v">Kathmandu</div></div>
+    <div class="cell"><div class="k">Guarantee</div><div class="v">10<small>yr stitch</small></div></div>
+  </div>
+</header>
+
+<!-- ============ CERTAIN KIND OF PERSON ============ -->
+<div class="kind">
+  <div class="kind-inner">
+    <div class="kind-portrait studio-wall">
+      <img src="assets/tnt-mocknneck-teal.png" alt="Man wearing TNT teal mock-neck tee" />
+      <div class="overlay"></div>
+      <div class="nm">Portrait №2 · The Wearer</div>
+    </div>
+    <div>
+      <div class="kind-tag mono">Chapter 01 · <span style="color:var(--accent)">The Standard</span></div>
+      <h2 class="display">There is a certain<br/>kind of <em>person</em><br/>this is for.</h2>
+      <p>They don't chase trends. They don't buy often. When they do — it has to mean something.</p>
+      <p>The weight of the fabric. The structure of the collar. The way it sits on the shoulder. Everything considered. Nothing accidental.</p>
+      <p class="final">This is the standard TNT was built on.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DEVANAGARI BANNER ============ -->
+<div class="deva-banner">
+  <div class="inner">
+    <div class="big-deva deva">आफ्नै शैली। आफ्नै पहिचान।</div>
+    <div class="trans serif">Your own style. Your own identity.</div>
+  </div>
+</div>
+
+<!-- ============ THE ONE GARMENT ============ -->
+<div class="the-one" id="shop">
+  <div class="the-one-inner">
+    <div class="the-one-head">
+      <h2 class="display">Made <em>once</em>.<br/>Made <em>right</em>.</h2>
+      <p>We make one thing. A heavyweight mock-neck, released in considered editions and pulled when it's gone. No waitlist. No second chance. That is not scarcity for the sake of hype — that is respect for the craft.</p>
+    </div>
+
+    <div class="editions">
+      <article class="edition">
+        <div class="edition-img studio-wall">
+          <span class="plate">TNT–01 · Drop 02</span>
+          <span class="status live">Live</span>
+          <img src="assets/tnt-mocknneck-terracotta.png" alt="The Mock-Neck in Terracotta" />
+        </div>
+        <div class="edition-meta">
+          <div>
+            <div class="edition-name display">The <em>Mock-Neck</em></div>
+            <div class="edition-sub">Terracotta · 340 GSM · Heavyweight</div>
+          </div>
+          <div class="edition-price">NPR 6,800</div>
+        </div>
+      </article>
+      <article class="edition">
+        <div class="edition-img studio-wall">
+          <span class="plate">TNT–01 · Drop 03</span>
+          <span class="status coming">Arriving June</span>
+          <img src="assets/tnt-mocknneck-teal.png" alt="The Mock-Neck in Teal" />
+        </div>
+        <div class="edition-meta">
+          <div>
+            <div class="edition-name display">The <em>Mock-Neck</em></div>
+            <div class="edition-sub">Teal · 340 GSM · Heavyweight</div>
+          </div>
+          <div class="edition-price">NPR 6,800</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ANATOMY ============ -->
+<section id="anatomy">
+  <div class="sec-head">
+    <div class="mono">Chapter 02<br/>The Garment</div>
+    <h2 class="sec-title display">Three things.<br/><em>Only</em> three things.</h2>
+    <p class="sec-caption">Considered so completely that nothing else needs to exist beside it.</p>
+  </div>
+
+  <div class="anatomy">
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;position:absolute;inset:0;" aria-hidden="true">
+        <g fill="none" stroke="color-mix(in srgb, var(--ink) 40%, transparent)" stroke-width="1">
+          <path d="M 120 150 L 88 200 L 88 440 L 312 440 L 312 200 L 280 150
+                   L 250 144 Q 250 174 200 174 Q 150 174 150 144 Z" />
+          <path d="M 174 140 L 174 120 Q 174 108 200 108 Q 226 108 226 120 L 226 140"/>
+          <line x1="174" y1="128" x2="226" y2="128" stroke-dasharray="2 3" opacity="0.5"/>
+          <line x1="120" y1="150" x2="150" y2="144" opacity="0.5"/>
+          <line x1="280" y1="150" x2="250" y2="144" opacity="0.5"/>
+          <line x1="88" y1="430" x2="312" y2="430" stroke-dasharray="3 3" opacity="0.6"/>
+          <line x1="200" y1="174" x2="200" y2="440" stroke-dasharray="1 4" opacity="0.25"/>
+        </g>
+        <g fill="var(--accent)">
+          <circle cx="200" cy="118" r="2.5"/>
+          <circle cx="90" cy="200" r="2.5"/>
+          <circle cx="310" cy="200" r="2.5"/>
+          <circle cx="200" cy="435" r="2.5"/>
+        </g>
+        <g transform="translate(184 280)" opacity="0.55">
+          <use href="#tnt-mark" width="32" height="34" style="color: var(--accent);"/>
+        </g>
+      </svg>
+      <div class="dia-label dia-l1"><span class="ln"></span><span><b>Mock neck</b> / 4cm rigid band</span></div>
+      <div class="dia-label dia-l2"><span class="ln"></span><span><b>Shoulder</b> / 2.5cm intentional drop</span></div>
+      <div class="dia-label dia-l3"><span class="ln"></span><span><b>Hem</b> / double-needle</span></div>
+      <div class="dia-label dia-r1"><span>340 GSM · <b>heavy hand</b></span><span class="ln"></span></div>
+      <div class="dia-label dia-r2"><span>Long-staple · <b>Indian cotton</b></span><span class="ln"></span></div>
+    </div>
+    <div>
+      <div class="mono" style="margin-bottom: 18px;">The Garment · TNT–01</div>
+      <h2 class="display">The garment, <em>itself</em>.</h2>
+      <p>A heavyweight mock-neck tee with a structured silhouette and a fit that doesn't apologize for itself. Eleven months on this pattern before release. You'll spend the next decade in it.</p>
+
+      <div class="three-rules">
+        <div class="rule-row">
+          <div class="n">01</div>
+          <div class="stmt display">The mock neck stays <em>rigid</em>.</div>
+        </div>
+        <div class="rule-row">
+          <div class="n">02</div>
+          <div class="stmt display">The shoulder drops with <em>intent</em>.</div>
+        </div>
+        <div class="rule-row">
+          <div class="n">03</div>
+          <div class="stmt display">The fabric carries <em>weight</em> — because it should.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="specs-strip">
+    <div class="cell"><div class="k">Fabric Weight</div><div class="v">340<small>gsm</small></div></div>
+    <div class="cell"><div class="k">Cotton Staple</div><div class="v">38<small>mm</small></div></div>
+    <div class="cell"><div class="k">Neck Band</div><div class="v">380<small>gsm rib</small></div></div>
+    <div class="cell"><div class="k">Pre-wash Tested</div><div class="v">200<small>+ cycles</small></div></div>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<div class="manifesto">
+  <svg class="crest" viewBox="0 0 64 68" aria-hidden="true" style="color: var(--accent);"><use href="#tnt-mark"/></svg>
+  <div class="deva-line deva">टिकाउ। सफा। आफ्नो।</div>
+  <h2 class="display">Durable. Clean.<br/><em>Yours.</em></h2>
+  <div class="attr">The TNT Manifesto · Kathmandu · Volume 01</div>
+</div>
+
+<!-- ============ PACKAGING ============ -->
+<div class="signature">
+  <div class="signature-inner">
+    <div class="signature-head">
+      <div class="mono">The Object</div>
+      <h2 class="display">A gift, <em>to yourself</em>.</h2>
+      <p class="sec-caption">Every TNT garment arrives in a signed, hand-finished presentation — hangtag, envelope, box. The mark is stamped in gold foil. The inside hem is signed by the maker.</p>
+    </div>
+
+    <div class="package-grid">
+      <div class="pk pk-hangtag">
+        <span class="nm">Plate 01 · Hangtag</span>
+        <div style="display:flex; flex-direction:column; align-items:center; gap: 14px;">
+          <svg width="56" height="60" style="color:#c9a46b;"><use href="#tnt-mark"/></svg>
+          <div style="font-family: var(--font-display); font-size: 40px; color: #f5eedf; letter-spacing: 0.18em;">TNT</div>
+        </div>
+        <span class="cap"><span>Black card · gold foil</span><span>No. 001 / 248</span></span>
+      </div>
+      <div class="pk pk-box">
+        <span class="nm">Plate 02 · Presentation Box</span>
+        <div style="display:flex; flex-direction:column; align-items:center; gap: 14px;">
+          <svg width="72" height="76" style="color:#c9a46b;"><use href="#tnt-mark"/></svg>
+          <div style="font-family: var(--font-display); font-size: 48px; color: #c9a46b; letter-spacing: 0.22em;">TNT</div>
+        </div>
+        <span class="cap"><span>Foil-stamped · ribbon-tied</span><span>Atelier seal</span></span>
+      </div>
+      <div class="pk pk-label">
+        <span class="nm">Plate 03 · Inside Hem</span>
+        <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 10px;">
+          <div style="width: 84px; height: 100px; background:#111; display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 6px; border: 1px solid #c9a46b;">
+            <svg width="30" height="32" style="color:#c9a46b;"><use href="#tnt-mark"/></svg>
+            <div style="font-family: var(--font-display); font-size: 14px; color: #f5eedf; letter-spacing: 0.2em;">TNT</div>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a8274;">Signed · No. 001 / 248</div>
+        </div>
+        <span class="cap"><span>Sewn-in label</span><span>Bone</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DROPS LEDGER ============ -->
+<div class="rhythm">
+  <div class="rhythm-inner">
+    <div class="rhythm-head">
+      <h2 class="display">We do not<br/>move <em>fast</em>.</h2>
+      <p>Each drop is released when it is ready — and pulled when it is gone. There is no waitlist. No second chance. That is respect for the craft.</p>
+    </div>
+
+    <div class="ledger" role="table" aria-label="Drops ledger">
+      <div class="row head">
+        <span>Drop</span>
+        <span>Edition</span>
+        <span>Released</span>
+        <span>Colour</span>
+        <span>Status</span>
+      </div>
+      <div class="row">
+        <span>№ 01</span>
+        <span class="name display">The <em>Mock-Neck</em> · Obsidian</span>
+        <span>Mar 2026</span>
+        <span class="swatch-cell"><span class="sw" style="background:#141211"></span> Obsidian</span>
+        <span class="status gone">Gone · 248/248</span>
+      </div>
+      <div class="row">
+        <span>№ 02</span>
+        <span class="name display">The <em>Mock-Neck</em> · Terracotta</span>
+        <span>Apr 2026</span>
+        <span class="swatch-cell"><span class="sw" style="background:#b93626"></span> Terracotta</span>
+        <span class="status live">Live · 172 remain</span>
+      </div>
+      <div class="row">
+        <span>№ 03</span>
+        <span class="name display">The <em>Mock-Neck</em> · Teal</span>
+        <span>Jun 2026</span>
+        <span class="swatch-cell"><span class="sw" style="background:#3a8882"></span> Teal</span>
+        <span class="status coming">Soon · register</span>
+      </div>
+      <div class="row">
+        <span>№ 04</span>
+        <span class="name display">The <em>Mock-Neck</em> · Bone</span>
+        <span>Sep 2026</span>
+        <span class="swatch-cell"><span class="sw" style="background:#f0e7d4; border-color:#cdc4b3;"></span> Bone</span>
+        <span class="status coming">Planned</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ COVENANT ============ -->
+<section id="covenant" class="covenant">
+  <div class="sec-head">
+    <div class="mono">Chapter 03<br/>The Covenant</div>
+    <h2 class="sec-title display">Our <em>promise</em>,<br/>in numbers.</h2>
+    <p class="sec-caption">A garment is not premium because of its price. It is premium because of what the maker stands behind.</p>
+  </div>
+  <div class="covenant-grid">
+    <div class="cov">
+      <div class="n">01 / Stitch</div>
+      <div class="big display">10<em>yr</em></div>
+      <h3 class="display">Stitch guarantee</h3>
+      <p>If a seam fails within ten years of wear — repaired or replaced. No questions. No receipts.</p>
+    </div>
+    <div class="cov">
+      <div class="n">02 / Care</div>
+      <div class="big display">∞</div>
+      <h3 class="display">Lifetime repairs</h3>
+      <p>Send it back anytime. Our atelier will darn, re-stitch, or reinforce — complimentary, always.</p>
+    </div>
+    <div class="cov">
+      <div class="n">03 / Edition</div>
+      <div class="big display">248</div>
+      <h3 class="display">Numbered. Once.</h3>
+      <p>Each drop is 248 pieces. When it is gone, it is gone. Your piece is signed and numbered, inside the hem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<div class="letter">
+  <div class="seal">
+    <span class="rule-line"></span>
+    <span class="dot"></span>
+    <span class="deva-mark deva">सदस्यता</span>
+    <span class="dot"></span>
+    <span class="rule-line"></span>
+  </div>
+  <h3 class="display">Letters from the <em>atelier</em>.</h3>
+  <p>Four dispatches a year. New drops, repair workshops in Kathmandu, and the occasional note on cotton, patience, and intent.</p>
+  <form class="nl-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Thank you ✦';">
+    <input type="email" placeholder="your email address" required />
+    <button type="submit">Subscribe →</button>
+  </form>
+</div>
+
+<!-- ============ SIGN-OFF ============ -->
+<section class="signoff">
+  <div class="mark">
+    <svg width="54" height="58" style="color: var(--accent);" aria-hidden="true"><use href="#tnt-mark"/></svg>
+  </div>
+  <h2 class="display">Built to <em>last</em>.<br/>Worn with <em>intent</em>.</h2>
+  <div class="sub">TNT · Kathmandu, Nepal</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="monogram" style="gap: 14px;">
+        <svg width="40" height="42" style="color: var(--accent);"><use href="#tnt-mark"/></svg>
+        <div class="foot-word">Turtle<br/>Neck<em>Tees.</em></div>
+      </div>
+      <p>A small Kathmandu atelier making one garment — heavier, slower, and better than it has to be. Made once. Made right.</p>
+    </div>
+    <div>
+      <h5>The Garment</h5>
+      <ul>
+        <li><a href="#shop">TNT–01 Mock-Neck</a></li>
+        <li><a href="#anatomy">Fabric / 340 GSM</a></li>
+        <li><a href="#">Sizing</a></li>
+        <li><a href="#">Care</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Atelier</h5>
+      <ul>
+        <li><a href="about.html">Story</a></li>
+        <li><a href="#">The Process</a></li>
+        <li><a href="#">Repair Workshop</a></li>
+        <li><a href="#">Wage Ledger</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li>Kathmandu, Nepal</li>
+        <li><a href="mailto:atelier@tnt.np">atelier@tnt.np</a></li>
+        <li><a href="#">Instagram · @tnt.np</a></li>
+        <li><a href="#">The Ledger (Letters)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 TNT Atelier · <span class="deva">सर्वाधिकार सुरक्षित</span></span>
+    <span>Made once · Made right</span>
+  </div>
+</footer>
+
+<!-- ============ PALETTE TOGGLE ============ -->
+<div class="palette-toggle" role="group" aria-label="Color palette">
+  <span class="pt-label">Palette</span>
+  <button class="pt-swatch" data-palette="obsidian" style="background:#0e0d0b; border-color: var(--accent);" aria-label="Obsidian" aria-pressed="true"></button>
+  <button class="pt-swatch" data-palette="bone" style="background:#f2ede3;" aria-label="Bone" aria-pressed="false"></button>
+</div>
+
+<script>
+  // Palette toggle
+  document.querySelectorAll('.pt-swatch').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const p = btn.dataset.palette;
+      document.body.dataset.palette = p;
+      document.querySelectorAll('.pt-swatch').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.palette === p)));
+    });
+  });
+</script>
+</body>
+</html>
