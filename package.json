@@ -1,0 +1,16 @@
+{
+  "name": "turtle-neck-tees",
+  "version": "1.0.0",
+  "description": "Full stack ecommerce platform for Turtle Neck Tees",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "setup": "npm run install-all && echo 'Setup complete!'",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "keywords": ["ecommerce", "react", "express", "supabase"],
+  "author": "beenprabin16",
+  "license": "MIT"
+}
